@@ -37,3 +37,24 @@ it('it should respond with products', async done => {
     
     done();
 });
+
+it('should return with selected product', async done => {
+    const expectation = {
+
+        results: {
+            'id': 1, 
+            'image': 'https://media2.giphy.com/media/aMO3eGc9frP9i24AqG/source.gif',
+            'name': 'Niacinamide 10%', 
+            'size': '16ml',
+            'price': '$15',
+            'type': 'Serum'
+        }, 
+
+    };
+    const response = await request.get('/products/1');
+
+    expect(response.status).toBe(200);
+    
+    expect(response.body).toEqual(expectation);
+    done();
+});
