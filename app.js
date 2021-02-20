@@ -24,7 +24,7 @@ app.get('/products/:id', (req, res) => {
     const id = Number(req.params.id);
 
     const selectedProduct = products
-        .find((item) => item.sid === id);
+        .find((item) => item.id === id);
 
     res.json({ results: selectedProduct });
 });
